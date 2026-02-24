@@ -367,3 +367,80 @@ h1, h2, h3, h4, h5, h6 {
         box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15) !important;
     }
 }
+
+/* =========================================
+   OTTIMIZZAZIONE PER DISPOSITIVI MOBILE
+========================================= */
+@media (max-width: 768px) {
+    /* 1. Riduciamo gli spazi vuoti tra le sezioni */
+    .page-section {
+        padding: 4rem 0 !important; /* Dimezziamo il padding verticale */
+    }
+
+    /* 2. Riduciamo lo spazio nell'intestazione principale (Masthead) */
+    .masthead {
+        padding-top: calc(4rem + 72px) !important;
+        padding-bottom: 4rem !important;
+    }
+
+    /* 3. Rimpiccioliamo i titoli per evitare che vadano su troppe righe */
+    .masthead-heading {
+        font-size: 2.2rem !important;
+    }
+    
+    .page-section-heading {
+        font-size: 1.8rem !important;
+    }
+
+    /* 4. Riduciamo leggermente le icone di separazione (le stelline/omini) */
+    .divider-custom {
+        margin-bottom: 2rem !important;
+    }
+
+    /* 5. Miglioriamo l'impaginazione della Timeline su mobile */
+    .timeline-item {
+        display: flex;
+        flex-direction: column;
+        border-left: 3px solid #6c757d; /* Linea spostata a sinistra */
+        padding-left: 1.5rem;
+        position: relative;
+        margin-bottom: 2.5rem !important; /* Più spazio tra un evento e l'altro */
+    }
+    
+    /* Crea il pallino sulle date per il telefono */
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -9px; /* Centra il pallino sulla linea */
+        top: 0;
+        width: 15px;
+        height: 15px;
+        background-color: #6c757d;
+        border-radius: 50%;
+    }
+    
+    .timeline-marker {
+        display: none !important; /* Nasconde la grafica complessa del PC */
+    }
+    
+    .timeline-date {
+        order: 1; /* Mette la data in alto */
+        padding: 0 !important;
+        text-align: left !important;
+        flex: auto !important;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Mette le date sulla stessa riga (es. 06/2023 - 04/2023) */
+    .timeline-date span {
+        display: inline-block !important; 
+        margin-right: 0.5rem;
+    }
+    
+    .timeline-content {
+        order: 2; /* Mette il testo sotto la data */
+        border: none !important;
+        padding: 0 !important;
+        text-align: left !important;
+    }
+}
